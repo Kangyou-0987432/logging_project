@@ -1,0 +1,32 @@
+{
+    "version": 1,
+    "disable_existing_loggers": false,
+    "formatters": {
+        "simple": {
+            "format": "%(asctime)s - %(levelname)s - %(message)s"
+        }
+    },
+    "handlers": {
+        "file": {
+            "class": "logging.FileHandler",
+            "filename": "app.log",
+            "formatter": "simple",
+            "level": "DEBUG"
+        },
+        "memory_handler": {
+            "class": "logging.handlers.MemoryHandler",
+            "target": "file",
+            "capacity": 5,
+            "level": "DEBUG"
+
+        }
+    },
+    "loggers": {
+        "user_actions": {
+            "level": "DEBUG",
+            "handlers": [
+                "memory_handler"
+            ]
+        }
+    }
+}

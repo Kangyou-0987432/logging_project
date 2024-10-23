@@ -1,0 +1,82 @@
+/* Algemeen stijlen */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Hoofdtitel */
+h1 {
+    text-align: center;
+    color: #333;
+    margin-top: 20px;
+}
+
+/* Subtitels */
+h2 {
+    text-align: center;
+    color: #555;
+}
+
+/* Log secties */
+h3 {
+    color: #444;
+    border-bottom: 2px solid #007bff;
+    padding: 10px 0;
+}
+
+/* Lijsten */
+ul {
+    list-style-type: none; /* Verwijder de standaard lijststijl */
+    padding: 0; /* Verwijder de standaard padding */
+}
+
+li {
+    background: #fff;
+    margin: 10px auto; /* Centreren van lijstitems */
+    padding: 10px;
+    border-radius: 5px; /* Ronde hoeken */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Kleurcodering voor verschillende loglevels */
+ul > li:nth-child(odd) {
+    background-color: #f9f9f9; /* Lichte achtergrond voor oneven items */
+}
+
+.info {
+    border-left: 5px solid #0088ff; /* Blauw voor info-logs */
+}
+
+.warning {
+    border-left: 5px solid #ff9800; /* Oranje voor waarschuwingen */
+}
+
+.debug {
+    border-left: 5px solid #4caf50; /* Groen voor debug-logs */
+}
+
+/* Centraal uitlijnen voor paragrafen */
+p {
+    text-align: center; /* Centraal uitlijnen van tekst in paragrafen */
+    margin: 0 auto; /* Zorg ervoor dat er geen automatische marges zijn */
+    width: fit-content; /* Zorg ervoor dat de breedte zich aanpast aan de inhoud */
+}
+
+
+/* Responsive ontwerp */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    h1, h2, h3 {
+        font-size: 1.5em; /* Grotere tekst voor kleine schermen */
+    }
+
+    li {
+        padding: 5px;
+    }
+}

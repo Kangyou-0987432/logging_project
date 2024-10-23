@@ -1,0 +1,91 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Django stuff:
+*.log
+*.pot
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+*.db
+*.env
+
+# If you are using a virtual environment, add it to .gitignore
+.venv/
+venv/
+ENV/
+env/
+env.bak/
+venv.bak/
+
+# Pytest
+.coverage
+.cache
+.pytest_cache/
+nosetests.xml
+coverage.xml
+*.cover
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Environments
+.env
+.venv
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*~
+.project
+.settings/
+*.sublime-project
+*.sublime-workspace
+
+
+# Local settings
+local_settings.py
+
+# Other files
+*.DS_Store
+*.log
+*.pot
+*.pyc
+*.pyo
+*.pyd
+*.sublime-project
+*.sublime-workspace
+*.env
+.env
+.env.*
+
+
+# Windows specific
+Thumbs.db
+ehthumbs.db
+*.stackdump

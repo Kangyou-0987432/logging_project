@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="nl">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+</head>
+<body>
+    <h1>Dashboard</h1>
+    <h2>Gebruiker: {{ user.username }}</h2>
+    <h2>Totale logs :</h2>
+
+    <p><strong>Totaal aantal logs:
+        {{ logs.info|length }} info,
+        {{ logs.warning|length }} warnings,
+        {{ logs.debug|length }} debug
+    </strong></p>
+
+    <h3>Filter op gebruiker:</h3>
+    <form method="GET" action="{% url 'dashboard' %}">
+        <select name="username" onchange="this.form.submit()">
+            <option value="">Selecteer een gebruiker</option>
+            {% for username in users %}
+                <option value="{{ username }}" {% if request.GET.username == username %}selected{% endif %}>
+                    {{ username }}
+                </option>
+            {% endfor %}
+        </select>
+    </form>
+
+    <h3>INFO Log:</h3>
+    <ul>
+        {% for entry in logs.info %}
+            <li class="info">{{ entry }}</li>
+        {% endfor %}
+    </ul>
+
+    <h3>WARNING Log:</h3>
+    <ul>
+        {% for entry in logs.warning %}
+            <li class="warning">{{ entry }}</li>
+        {% endfor %}
+    </ul>
+
+    <h3>DEBUG Log:</h3>
+    <ul>
+        {% for entry in logs.debug %}
+            <li class="debug">{{ entry }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

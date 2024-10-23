@@ -1,0 +1,50 @@
+{% load static %}
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <title>Home</title>
+</head>
+<body>
+    <nav>
+        <a href="{% url 'test1' %}">Test 1</a>
+        <a href="{% url 'test2' %}">Test 2</a>
+    </nav>
+
+    <h1>Welkom {% if user.is_authenticated %}{{ user.username }}{% else %}gast{% endif %}!</h1>
+
+    {% if user.is_authenticated %}
+        <h2>Uitloggen</h2>
+        <form method="post" action="{% url 'dashboard' %}">
+            {% csrf_token %}
+            <button type="submit">Logging dashboard</button>
+        </form>
+
+        <form method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button type="submit">Uitloggen</button>
+        </form>
+
+        <form method="post" action="{% url 'button_click' %}">
+            {% csrf_token %}
+            <button type="submit" id="clickButton">Press in here</button>
+        </form>
+
+    {% else %}
+        <h2>Login</h2>
+        <form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Inloggen</button>
+        </form>
+
+        <h2>Account Aanmaken</h2>
+        <form method="post" action="{% url 'signup' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Account Aanmaken</button>
+        </form>
+    {% endif %}
+</body>
+</html>
