@@ -89,7 +89,7 @@ def logout_view(request):
 def button_click_view(request):
     if request.method == 'POST':
         if request.user.is_authenticated:
-            for _ in range(1_000):
+            for _ in range(1000):
                 user_action_logger.debug(f'{request.user.username} clicked the button.')
             memory_handler = get_handler_by_name(user_action_logger, 'memory_handler')
             if memory_handler:

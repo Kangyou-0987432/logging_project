@@ -13,19 +13,21 @@
             "formatter": "simple",
             "level": "DEBUG"
         },
-        "memory_handler": {
-            "class": "logging.handlers.MemoryHandler",
-            "target": "file",
-            "capacity": 5,
-            "level": "DEBUG"
-
+        "influxdb_handler": {
+            "class": "logging_app.handlers.InfluxDBHandler",
+            "formatter": "simple",
+            "level": "DEBUG",
+            "url": "https://westeurope-1.azure.cloud2.influxdata.com",
+            "token": "CJipS5rGV68NTzTKpJIR29U5uwUwmw9j0s5clUimelB1xTReXzrTX7WBsq4SqcnvjwFYPGqb40lQTswf-d7IaQ==",
+            "org": "DDE Team",
+            "bucket": "dbhandler"
         }
     },
     "loggers": {
         "user_actions": {
             "level": "DEBUG",
             "handlers": [
-                "memory_handler"
+                "influxdb_handler"
             ]
         }
     }
