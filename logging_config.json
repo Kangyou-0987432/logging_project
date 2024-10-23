@@ -1,0 +1,34 @@
+{
+    "version": 1,
+    "disable_existing_loggers": false,
+    "formatters": {
+        "simple": {
+            "format": "%(asctime)s - %(levelname)s - %(message)s"
+        }
+    },
+    "handlers": {
+        "file": {
+            "class": "logging.FileHandler",
+            "filename": "app.log",
+            "formatter": "simple",
+            "level": "DEBUG"
+        },
+        "influxdb_handler": {
+            "class": "logging_app.handlers.InfluxDBHandler",
+            "formatter": "simple",
+            "level": "DEBUG",
+            "url": "https://westeurope-1.azure.cloud2.influxdata.com",
+            "token": "CJipS5rGV68NTzTKpJIR29U5uwUwmw9j0s5clUimelB1xTReXzrTX7WBsq4SqcnvjwFYPGqb40lQTswf-d7IaQ==",
+            "org": "DDE Team",
+            "bucket": "dbhandler"
+        }
+    },
+    "loggers": {
+        "user_actions": {
+            "level": "DEBUG",
+            "handlers": [
+                "influxdb_handler"
+            ]
+        }
+    }
+}

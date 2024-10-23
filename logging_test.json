@@ -1,0 +1,30 @@
+{
+    "version": 1,
+    "disable_existing_loggers": false,
+    "formatters": {
+        "simple": {
+            "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+        }
+    },
+    "handlers": {
+        "memory": {
+            "class": "logging.handlers.MemoryHandler",
+            "capacity": 1000,
+            "flushLevel": 50,
+            "target": "file"
+        },
+        "file": {
+            "class": "logging.FileHandler",
+            "filename": "app.log",
+            "formatter": "simple"
+        }
+    },
+    "loggers": {
+        "my_logger": {
+            "level": "DEBUG",
+            "handlers": ["memory"],
+            "propagate": false
+
+        }
+    }
+}
